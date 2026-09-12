@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #efe6d6;
+  --paper: #fffdf8;
+  --ink: #1b2419;
+  --muted: #5a6456;
+  --sage: #2f5d3a;
+  --sage-deep: #21432b;
+  --leaf: #dce8d4;
+  --gold: #9a6b14;
+  --gold-soft: #f3e2b8;
+  --clay: #b55228;
+  --sky: #2f5d73;
+  --sky-soft: #d5e4eb;
+  --line: #e3d8c4;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-leaf: var(--leaf);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-clay: var(--clay);
+  --color-sky: var(--sky);
+  --color-sky-soft: var(--sky-soft);
+  --color-line: var(--line);
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+html {
+  background: var(--cream);
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+.senior-ui {
+  font-size: 1.125rem;
+}
+
+.senior-ui h1 {
+  letter-spacing: -0.03em;
+}
