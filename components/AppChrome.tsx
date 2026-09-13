@@ -24,56 +24,54 @@ export function AppChrome({ children }: { children: React.ReactNode }) {
   }, [pathname, role, setRole]);
 
   return (
-    <div className={cn("min-h-full", view === "senior" && "senior-ui")}>
-      <header className="sticky top-0 z-30 border-b border-line/80 bg-cream/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-4 py-3">
-          <Logo />
-          <p className="hidden text-sm font-medium text-muted sm:block">{demoClock}</p>
-          <div className="ml-auto flex flex-wrap items-center gap-2">
-            {!isLanding && (
-              <>
-                <button
-                  type="button"
-                  className="hidden min-h-10 items-center gap-1 rounded-full px-3 text-sm font-semibold text-sage hover:bg-leaf md:inline-flex"
-                  onClick={() => {
-                    setRole("family");
-                    router.push("/family/activities/garden-walk");
-                  }}
+    <div className={cn("min-h-full", (view === "senior" || isLanding) && "senior-ui")}>
+      {!isLanding && (
+        <header className="sticky top-0 z-30 border-b border-line/80 bg-cream/90 backdrop-blur">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-4 py-3">
+            <Logo />
+            <p className="hidden text-sm font-medium text-muted sm:block">{demoClock}</p>
+            <div className="ml-auto flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                className="hidden min-h-10 items-center gap-1 rounded-full px-3 text-sm font-semibold text-sage hover:bg-leaf md:inline-flex"
+                onClick={() => {
+                  setRole("family");
+                  router.push("/family/activities/garden-walk");
+                }}
+              >
+                <Sparkles className="size-4" />
+                Jump to demo
+              </button>
+              <button
+                type="button"
+                className="inline-flex min-h-10 items-center gap-1 rounded-full px-3 text-sm font-medium text-muted hover:bg-paper"
+                onClick={() => {
+                  resetDemo();
+                  router.push("/");
+                }}
+              >
+                <RotateCcw className="size-4" />
+                Reset
+              </button>
+              {view === "family" && (
+                <Link
+                  href="/family/notifications"
+                  className="relative grid size-11 place-items-center rounded-full border border-line bg-paper"
+                  aria-label="Notifications"
                 >
-                  <Sparkles className="size-4" />
-                  Jump to demo
-                </button>
-                <button
-                  type="button"
-                  className="inline-flex min-h-10 items-center gap-1 rounded-full px-3 text-sm font-medium text-muted hover:bg-paper"
-                  onClick={() => {
-                    resetDemo();
-                    router.push("/");
-                  }}
-                >
-                  <RotateCcw className="size-4" />
-                  Reset
-                </button>
-                {view === "family" && (
-                  <Link
-                    href="/family/notifications"
-                    className="relative grid size-11 place-items-center rounded-full border border-line bg-paper"
-                    aria-label="Notifications"
-                  >
-                    <Bell className="size-5" />
-                    {unreadCount > 0 && (
-                      <span className="absolute right-1 top-1 grid size-5 place-items-center rounded-full bg-clay text-[11px] font-bold text-paper">
-                        {unreadCount}
-                      </span>
-                    )}
-                  </Link>
-                )}
-              </>
-            )}
-            <RoleSwitcher />
+                  <Bell className="size-5" />
+                  {unreadCount > 0 && (
+                    <span className="absolute right-1 top-1 grid size-5 place-items-center rounded-full bg-clay text-[11px] font-bold text-paper">
+                      {unreadCount}
+                    </span>
+                  )}
+                </Link>
+              )}
+              <RoleSwitcher />
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
+      )}
 
       <div>{children}</div>
 

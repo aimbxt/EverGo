@@ -38,7 +38,7 @@ export default function FamilyHomePage() {
               <p className="text-sm font-semibold uppercase tracking-wide text-sage">Next trip</p>
               <h3 className="mt-2 font-serif text-3xl font-semibold">{garden.businessName}</h3>
               <p className="mt-2 text-lg">
-                Pickup {bus.pickupTime} · {garden.day} {garden.time}
+                Pickup {bus.pickupTime} · {garden.day} · {garden.time}
               </p>
               <div className="mt-3">
                 <StatusBadge status={trip?.status ?? "scheduled"} />
@@ -51,7 +51,11 @@ export default function FamilyHomePage() {
             <>
               <p className="text-sm font-semibold uppercase tracking-wide text-gold">Recommended for Margaret</p>
               <h3 className="mt-2 font-serif text-3xl font-semibold">Botanical Garden Senior Walking Group</h3>
-              <p className="mt-2 text-lg text-muted">Saturday · 1:00 PM · 8 seniors attending</p>
+              <p className="mt-2 text-lg text-muted">
+                {garden
+                  ? `${garden.day} · ${garden.time} · ${garden.attendeeCount} seniors attending`
+                  : "Saturday, Sep 19 · 1:00 PM · 8 seniors attending"}
+              </p>
               <p className="mt-3 text-lg">
                 Senior Bus #102 · Pickup 12:15 PM · Return 3:00 PM · 8 / 12 seats filled
               </p>

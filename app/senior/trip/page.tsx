@@ -31,6 +31,7 @@ export default function SeniorTripPage() {
       <div className="mt-4">
         <StatusBadge status={trip.status} className="text-lg" />
       </div>
+      <p className="mt-4 text-2xl">{activity.day}</p>
       <p className="mt-4 text-2xl font-semibold">Pickup {bus.pickupTime}</p>
       <p className="mt-1 text-xl">Return {bus.returnTime}</p>
       <div className="mt-6">
