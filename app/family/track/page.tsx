@@ -38,7 +38,7 @@ export default function TrackPage() {
           <StatusBadge status={trip.status} />
         </div>
         <p className="mt-3 text-lg">
-          Pickup {bus.pickupTime} · activity {activity.time} · return {bus.returnTime}
+          Pickup {bus.pickupTime} · {activity.day} · {activity.time} · return {bus.returnTime}
         </p>
         <div className="mt-6">
           <FakeMap status={trip.status} />

@@ -23,7 +23,7 @@ import type {
   TripStatus,
 } from "./types";
 
-const STORAGE_KEY = "evergo-demo-v1";
+const STORAGE_KEY = "evergo-demo-v2";
 
 type Store = AppState & {
   hydrated: boolean;

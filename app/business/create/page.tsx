@@ -16,7 +16,7 @@ export default function CreateActivityPage() {
     "A slower evening walk through the glasshouse with tea at the end.",
   );
   const [category, setCategory] = useState<Category>("outdoors");
-  const [day, setDay] = useState("Sunday");
+  const [day, setDay] = useState("Sunday, Sep 20");
   const [time, setTime] = useState("4:00 PM");
   const [location, setLocation] = useState("Botanical Garden, Conservatory");
   const [price, setPrice] = useState("Free with garden admission");
@@ -54,7 +54,7 @@ export default function CreateActivityPage() {
           </select>
         </Field>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field label="Day" id="day">
+          <Field label="Date" id="day">
             <input id="day" value={day} onChange={(e) => setDay(e.target.value)} className={inputClass} />
           </Field>
           <Field label="Time" id="time">
